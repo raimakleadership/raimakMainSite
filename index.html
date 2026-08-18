@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raimak | Premier Connectivity Solutions</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <!-- Dynamic Video Background (Crossfade Setup) -->
+    <div class="dynamic-background">
+      <!-- Video 1 (Starts Active) -->
+      <video
+        autoplay
+        muted
+        playsinline
+        id="bg-video-1"
+        class="bg-video active-video"
+      >
+        <source src="bg5.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Video 2 (Starts Hidden) -->
+      <video muted playsinline id="bg-video-2" class="bg-video">
+        <source src="bg5.mp4" type="video/mp4" />
+      </video>
+
+      <div class="grid-overlay"></div>
+    </div>
+
+    <header>
+      <a href="index.html" class="logo">
+        <!-- The New Un-Pinched SVG Raindrop -->
+        <svg
+          class="logo-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M12 3c-4.5 4.5-7 8.5-7 12a7 7 0 0 0 14 0c0-3.5-2.5-7.5-7-12z"
+          ></path>
+        </svg>
+        <!-- The Stacked Text -->
+        <div class="logo-text-wrapper">
+          <span class="logo-title">Raimak</span>
+          <span class="logo-tagline">We Make it Rain</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main id="swup" class="transition-fade">
+      <section class="hero">
+        <h2>Connecting You to What Matters Most.</h2>
+        <p>
+          Raimak evaluates and provides the best high-speed internet and mobile
+          services available in your specific area, ensuring you always get the
+          optimal network for your needs.
+        </p>
+        <a href="contact.html" class="btn">Get in Touch Today</a>
+      </section>
+
+      <div class="container">
+        <div class="services">
+          <div class="service-card">
+            <h3>Home Connectivity</h3>
+            <p>
+              We cut through the noise to find the most reliable, high-speed
+              internet providers available at your specific address, tailored
+              for your household.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Mobile Networks</h3>
+            <p>
+              Stay connected on the go. Our experts match you with the strongest
+              mobile coverage and best data plans available in your region.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Strategic Partnerships</h3>
+            <p>
+              Powered by an elite, highly trained sales force, Raimak partners
+              with nationwide carriers to deliver unparalleled customer
+              acquisition and high-volume distribution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Raimak. All rights reserved.</p>
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a>
+      </p>
+    </footer>
+
+    <!-- Swup CDN & Initialization -->
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
+
+      // Re-initialize interactive card physics after Swup loads a new page
+      swup.hooks.on("content:replace", () => {
+        if (typeof window.initMagneticCards === "function") {
+          window.initMagneticCards();
+        }
+      });
+    </script>
+  </body>
+</html>

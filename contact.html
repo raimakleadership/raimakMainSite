@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Raimak</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Dynamic Fiber Optic Background -->
+    <div class="dynamic-background">
+      <!-- Soft ambient lighting -->
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <!-- Distinct data streams to showcase the glass -->
+      <div class="stream stream-1"></div>
+      <div class="stream stream-2"></div>
+    </div>
+    <!-- The Updated Architectural Header -->
+    <header>
+      <a href="index.html" class="logo">
+        <svg
+          class="logo-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M12 3c-4.5 4.5-7 8.5-7 12a7 7 0 0 0 14 0c0-3.5-2.5-7.5-7-12z"
+          ></path>
+        </svg>
+        <div class="logo-text-wrapper">
+          <span class="logo-title">Raimak</span>
+          <span class="logo-tagline">We Make it Rain</span>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <main id="swup" class="transition-fade">
+      <div class="container narrow">
+        <div class="content-card form-card">
+          <h2>Check Network Availability</h2>
+          <p>
+            Ready to upgrade your connection? Fill out the form below with your
+            service location, and one of our experts will reach out with the
+            fastest internet and mobile options available in your area.
+          </p>
+
+          <form action="#" method="POST" class="telecom-form">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="zipCode">Service Zip Code</label>
+                <input type="text" id="zipCode" name="zipCode" required />
+              </div>
+              <div class="form-group">
+                <label for="serviceType">Service Needed</label>
+                <select id="serviceType" name="serviceType" required>
+                  <option value="" disabled selected>
+                    Select an option...
+                  </option>
+                  <option value="home-internet">
+                    Residential Home Internet
+                  </option>
+                  <option value="business-internet">
+                    Business/Enterprise Internet
+                  </option>
+                  <option value="mobile">Mobile/Wireless Service</option>
+                  <option value="bundled">Bundled (Internet + Mobile)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="currentProvider">Current Provider (Optional)</label>
+              <input
+                type="text"
+                id="currentProvider"
+                name="currentProvider"
+                placeholder="e.g., Spectrum, AT&T, Xfinity"
+              />
+            </div>
+
+            <!-- CRITICAL A2P 10DLC COMPLIANCE SECTION -->
+            <div class="compliance-box">
+              <input
+                type="checkbox"
+                id="smsConsent"
+                name="smsConsent"
+                required
+              />
+              <label for="smsConsent">
+                I agree to receive SMS text messages from Raimak regarding my
+                service inquiry. Message frequency varies. Message and data
+                rates may apply. Reply STOP to opt out at any time or HELP for
+                more info. See our
+                <a href="privacy.html" target="_blank">Privacy Policy</a> and
+                <a href="terms.html" target="_blank">Terms of Service</a>.
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Check Availability</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Raimak. All rights reserved.</p>
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a>
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
+    </script>
+  </body>
+</html>
