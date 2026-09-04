@@ -83,6 +83,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Global Form Listener for Power Automate (Immune to Swup transitions)
+  document.addEventListener("submit", function (e) {
+    if (e.target && e.target.id === "contactForm") {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      // Ensure the checkbox sends a true/false boolean
+      data.smsConsent = formData.has("smsConsent");
+
+      // Your specific Power Automate Webhook
+      const webhookUrl =
+        "https://default39e141900b234ecd99f9606ad12158.81.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/05/workflows/a9a0815d65fa426e9258a1b424c8e285/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tT0rfHvbzXN6Im_Ry4oU3wM-5NmJvzklmpr0cAL7CS0";
+
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (response.ok) {
+            alert(
+              "Thank you! Your request has been submitted. A representative will be in touch shortly.",
+            );
+            e.target.reset(); // Clear the form
+          } else {
+            alert("Oops! Something went wrong. Please try again later.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Oops! Something went wrong. Please try again later.");
+        });
+    }
+  });
   // --- Initial Card Physics Run ---
   initMagneticCards();
 });

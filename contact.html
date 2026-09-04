@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us | Raimak</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Link your global JS file here so it loads immediately -->
+    <script src="main.js" defer></script>
   </head>
   <body>
     <!-- Dynamic Fiber Optic Background -->
     <div class="dynamic-background">
-      <!-- Soft ambient lighting -->
       <div class="glow glow-1"></div>
       <div class="glow glow-2"></div>
-      <!-- Distinct data streams to showcase the glass -->
       <div class="stream stream-1"></div>
       <div class="stream stream-2"></div>
     </div>
+
     <!-- The Updated Architectural Header -->
     <header>
       <a href="index.html" class="logo">
@@ -55,7 +56,6 @@
             fastest internet and mobile options available in your area.
           </p>
 
-          <!-- Added an ID here for the JavaScript to target -->
           <form id="contactForm" class="telecom-form">
             <div class="form-group-row">
               <div class="form-group">
@@ -139,48 +139,10 @@
       </p>
     </footer>
 
+    <!-- Swup CDN & Initialization -->
     <script src="https://unpkg.com/swup@4"></script>
     <script>
       const swup = new Swup();
-
-      // Script to convert form submission to JSON and send to Power Automate
-      document.addEventListener("submit", function (e) {
-        if (e.target && e.target.id === "contactForm") {
-          e.preventDefault();
-
-          const formData = new FormData(e.target);
-          const data = Object.fromEntries(formData.entries());
-
-          // Ensure the checkbox sends a true/false boolean
-          data.smsConsent = formData.has("smsConsent");
-
-          // PASTE YOUR POWER AUTOMATE URL BELOW
-          const webhookUrl =
-            "https://default39e141900b234ecd99f9606ad12158.81.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/05/workflows/a9a0815d65fa426e9258a1b424c8e285/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tT0rfHvbzXN6Im_Ry4oU3wM-5NmJvzklmpr0cAL7CS0";
-
-          fetch(webhookUrl, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          })
-            .then((response) => {
-              if (response.ok) {
-                alert(
-                  "Thank you! Your request has been submitted. A representative will be in touch shortly.",
-                );
-                e.target.reset(); // Clear the form
-              } else {
-                alert("Oops! Something went wrong. Please try again later.");
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("Oops! Something went wrong. Please try again later.");
-            });
-        }
-      });
     </script>
   </body>
 </html>
