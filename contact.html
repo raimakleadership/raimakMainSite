@@ -9,12 +9,25 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <!-- Dynamic Fiber Optic Background -->
+    <!-- Dynamic Video Background (Crossfade Setup) - MUST BE OUTSIDE SWUP -->
     <div class="dynamic-background">
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
-      <div class="stream stream-1"></div>
-      <div class="stream stream-2"></div>
+      <!-- Video 1 (Starts Active) -->
+      <video
+        autoplay
+        muted
+        playsinline
+        id="bg-video-1"
+        class="bg-video active-video"
+      >
+        <source src="bg5.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Video 2 (Starts Hidden) -->
+      <video muted playsinline id="bg-video-2" class="bg-video">
+        <source src="bg5.mp4" type="video/mp4" />
+      </video>
+
+      <div class="grid-overlay"></div>
     </div>
 
     <!-- The Updated Architectural Header -->
@@ -116,10 +129,10 @@
             <div class="compliance-box">
               <input type="checkbox" id="smsConsent" name="smsConsent" />
               <label for="smsConsent">
-                I agree to receive SMS text messages from Raimak regarding my
-                service inquiry. Message frequency varies. Message and data
-                rates may apply. Reply STOP to opt out at any time or HELP for
-                more info. See our
+                I agree to receive promotional and service-related SMS text
+                messages from Raimak regarding my inquiry. Message frequency
+                varies. Message and data rates may apply. Reply STOP to opt out
+                at any time or HELP for more info. See our
                 <a href="privacy.html" target="_blank">Privacy Policy</a> and
                 <a href="terms.html" target="_blank">Terms of Service</a>.
               </label>
